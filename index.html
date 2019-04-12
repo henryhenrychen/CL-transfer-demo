@@ -1,0 +1,748 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Audio samples from “End-to-end Text-to-speech for Low-resource Languages by Cross-Lingual Transfer Learning”</title>
+    <link rel="stylesheet" type="text/css" href="./stylesheet.css"/>
+    <!--
+    <link rel="shortcut icon" href="../../images/taco.png">
+    -->
+  </head>
+  <body>
+    <article>
+      <header>
+        <h1>Audio samples from "End-to-end Text-to-speech for Low-resource Languages by Cross-Lingual Transfer Learning"</h1>
+      </header>
+    </article>
+
+    <div><b>Paper:</b> <a href="">arXiv</a> <!-- <a href="">Interspeech 2017</a></div> -->
+    <div><b>Authors:</b> Yuan-Jui Chen*, Tao Tu*, Cheng-chieh Yeh, Hung-yi Lee </div>
+    <div><b>Abstract:</b> End-to-end text-to-speech (TTS) has shown great success on large quantities of paired text plus speech data. However, laborious data collection remains difficult for at least 95% of the languages over the world, which hinders the development of TTS in different languages. In this paper, we aim to build TTS systems for such low-resource (target) languages where only very limited paired data are available. We show such TTS can be effectively constructed by transferring knowledge from a high-resource (source) language. Since the model trained on source language cannot be directly applied to target language due to input space mismatch, we propose a method to learn a mapping between source and target linguistic symbols. Benefiting from this learned mapping, pronunciation information can be preserved throughout the transferring procedure. Preliminary experiments show that we only need around 15 minutes of paired data to obtain a relatively good TTS system. Furthermore, analytic studies demonstrated that the automatically discovered mapping correlate well with the phonetic expertise.</div>
+
+    <div><br/>All phrases below are unseen during training. Since our goal is to investigate transfer learning for languages with small amounts of data, all audio files on this demo page were synthesized using Griffin-Lim for faster experiment cycle as stated in the paper.
+    </div>
+
+    
+<ul>
+<li><a href="#head1">Samples for each target language with small amounts of data</a>
+  <ul>
+    <li><a href="#head1-zh-phn2phn">Mandarin (phn2phn)</a></li>
+    <li><a href="#head1-fr-phn2phn">French (phn2phn)</a></li>
+    <li><a href="#head1-fr-phn2char">French (phn2char)</a></li>
+    <li><a href="#head1-de-phn2phn">German (phn2phn)</a></li>
+    <li><a href="#head1-de-phn2char">German (phn2char)</a></li>
+  </ul>
+</li>
+<li><a href="#head2">Symbol Mapping</a>
+  <ul>
+    <li><a href="#head2-zh">Mandarin</a></li>
+    <li><a href="#head2-fr">French</a></li>
+    <li><a href="#head2-de">German</a></li>
+  </ul>
+</li>
+</ul>
+
+
+<hr>
+
+<h2 id="samples-for-each-target-languages-with-small-amount-of-data"><a name="head1"></a>Samples for each target languages with small amount of data</h2>
+
+<p>These samples refer to Section 4.3 of our paper. Here we demonstrate the performance of our 3 transfer learning methods on different languages: Mandarin, French and German. For all "<i>N</i> min" of the following, it means models are trained with only <i>N</i>-minute paired data in the target language. "Unified", "Learned" and "Separate" denote unified symbol space, learned symbol space and separate symbol space, respectively. "Scratch" is the model trained without transfering knowledge from high-resource data. "phn2phn" denotes the situation using phoneme as input in both source and target languages, and "phn2char" denotes the situation using phoneme input in source language but character input in target languages.</p>
+<p>
+We can observe that
+<ul>
+<li> 3 transfer learning method ("Unified", "Learned", "Separate") outperform training from scratch </li>
+<li> methods ("Unified", "Learned") w/ pronunciation information from source language outperform the method ("Separate") w/o pronunciation information </li>
+</ul>
+</p>
+
+
+
+<h3 id="mandarin-phn2phn"><a name="head1-zh-phn2phn"></a>Mandarin (phn2phn)</h3>
+
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Amount</th>
+      <th style="text-align: center">Text</th>
+      <th style="text-align: center">Unified</th>
+      <th style="text-align: center">Learned</th>
+      <th style="text-align: center">Separate</th>
+      <th style="text-align: center">Scratch</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>25 min</td>
+      <td class="txt_fix_width" style="text-align: left">還能笑得這麼開心</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/mandarin/25min_all/f05-read-0428_share.wav" type="audio/wav"/></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/mandarin/25min_all/f05-read-0428_map.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/mandarin/25min_all/f05-read-0428_separate.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/mandarin/25min_all/f05-read-0428_scratch.wav" type="audio/wav" /></audio></td>
+    </tr>
+    <tr>
+      <td>25 min</td>
+      <td class="txt_fix_width" style="text-align: left">想在這樣的楓紅裡野餐</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/mandarin/25min_all/f05-read-0203_share.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/mandarin/25min_all/f05-read-0203_map.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/mandarin/25min_all/f05-read-0203_separate.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/mandarin/25min_all/f05-read-0203_scratch.wav" type="audio/wav" /></audio></td>
+    </tr>
+    <tr>
+      <td>15 min</td>
+      <td class="txt_fix_width" style="text-align: left">祝你快快寫出好玩的新遊戲</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/mandarin/15min_all/f05-read-0028_share.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/mandarin/15min_all/f05-read-0028_map.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/mandarin/15min_all/f05-read-0028_separate.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/mandarin/15min_all/f05-read-0028_scratch.wav" type="audio/wav" /></audio></td>
+    </tr>
+    <tr>
+      <td>15 min</td>
+      <td class="txt_fix_width" style="text-align: left">原來我們只差一天</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/mandarin/15min_all/f05-read-0728_share.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/mandarin/15min_all/f05-read-0728_map.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/mandarin/15min_all/f05-read-0728_separate.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/mandarin/15min_all/f05-read-0728_scratch.wav" type="audio/wav" /></audio></td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Method</th>
+      <th style="text-align: center">Text</th>
+      <th style="text-align: center">30 min</th>
+      <th style="text-align: center">25 min</th>
+      <th style="text-align: center">20min</th>
+      <th style="text-align: center">15min</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Unified</td>
+      <td class="txt_fix_width" style="text-align: left">就原諒我這個虛榮的願望吧</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/mandarin/share_all/f05-read-0372_30min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/mandarin/share_all/f05-read-0372_25min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/mandarin/share_all/f05-read-0372_20min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/mandarin/share_all/f05-read-0372_15min.wav" type="audio/wav" /></audio></td>
+    </tr>
+    <tr>
+      <td>Learned</td>
+      <td class="txt_fix_width" style="text-align: left">就要在大阪多待一天了</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/mandarin/map_all/f05-read-0065_30min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/mandarin/map_all/f05-read-0065_25min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/mandarin/map_all/f05-read-0065_20min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/mandarin/map_all/f05-read-0065_15min.wav" type="audio/wav" /></audio></td>
+    </tr>
+    <tr>
+      <td>Separate</td>
+      <td class="txt_fix_width" style="text-align: left">好像輕輕嘆口氣</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/mandarin/separate_all/f05-read-0044_30min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/mandarin/separate_all/f05-read-0044_25min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/mandarin/separate_all/f05-read-0044_20min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/mandarin/separate_all/f05-read-0044_15min.wav" type="audio/wav" /></audio></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<hr>
+
+<h3 id="french-phn2phn"><a name="head1-fr-phn2phn"></a>French (phn2phn)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th style="text-align: center">Text</th>
+      <th style="text-align: center">Unified</th>
+      <th style="text-align: center">Learned</th>
+      <th style="text-align: center">Separate</th>
+      <th style="text-align: center">Scratch</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>15 min</td>
+      <td class="txt_fix_width" style="text-align: left">le conseil supérieur de la magistrature est composé de cinq membres titulaires</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2phn/15min_all/49_predicted_share.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2phn/15min_all/49_predicted_mapping.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2phn/15min_all/49_predicted_separate.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2phn/15min_all/49_predicted_scratch.wav" type="audio/wav" /></audio></td>
+    </tr>
+    <tr>
+      <td>15 min</td>
+      <td class="txt_fix_width" style="text-align: left">votre dossier de candidature doit être accompagné des éléments suivants</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2phn/15min_all/87_predicted_share.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2phn/15min_all/87_predicted_mapping.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2phn/15min_all/87_predicted_separate.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2phn/15min_all/87_predicted_scratch.wav" type="audio/wav" /></audio></td>
+    </tr>
+    <tr>
+      <td>10 min</td>
+      <td class="txt_fix_width" style="text-align: left">il est moins souvent utile de savoir si la réponse est exacte ou erronée</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2phn/10min_all/20_predicted_share.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2phn/10min_all/20_predicted_mapping.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2phn/10min_all/20_predicted_separate.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2phn/10min_all/20_predicted_scratch.wav" type="audio/wav" /></audio></td>
+    </tr>
+    <tr>
+      <td>10 min</td>
+      <td class="txt_fix_width" style="text-align: left">c’est dans ces centres sociaux non spécialisés en toxicomanie</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2phn/10min_all/11_predicted_share.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2phn/10min_all/11_predicted_mapping.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2phn/10min_all/11_predicted_separate.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2phn/10min_all/11_predicted_scratch.wav" type="audio/wav" /></audio></td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th style="text-align: center">Text</th>
+      <th style="text-align: center">15 min</th>
+      <th style="text-align: center">12.5 min</th>
+      <th style="text-align: center">10min</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Unified</td>
+      <td class="txt_fix_width" style="text-align: left">elle ne sent que par sa tête</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2phn/share_all/44_predicted_15min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2phn/share_all/44_predicted_12_5min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2phn/share_all/44_predicted_10min.wav" type="audio/wav" /></audio></td>
+    </tr>
+    <tr>
+      <td>Learned</td>
+      <td class="txt_fix_width" style="text-align: left">ils ont réalisé pour vous des ouvrages présentant la synthèse de leurs observations</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2phn/mapping_all/83_predicted_15min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2phn/mapping_all/83_predicted_12_5min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2phn/mapping_all/83_predicted_10min.wav" type="audio/wav" /></audio></td>
+    </tr>
+    <tr>
+      <td>Separate</td>
+      <td class="txt_fix_width" style="text-align: left">certaines mauvaises langues disent même que certains agriculteurs plantent justement du maïs</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2phn/separate_all/38_predicted_15min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2phn/separate_all/38_predicted_12_5min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2phn/separate_all/38_predicted_10min.wav" type="audio/wav" /></audio></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h3 id="french-phn2char"><a name="head1-fr-phn2char"></a>French (phn2char)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th style="text-align: center">Text</th>
+      <th style="text-align: center">Learned</th>
+      <th style="text-align: center">Separate</th>
+      <th style="text-align: center">Scratch</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>15 min</td>
+      <td class="txt_fix_width" style="text-align: left">il est alors utile de poursuivre les conseils diététiques précédents</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2char/15min_all/43_predicted_mapping.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2char/15min_all/43_predicted_separate.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2char/15min_all/43_predicted_scratch.wav" type="audio/wav" /></audio></td>
+    </tr>
+    <tr>
+      <td>15 min</td>
+      <td class="txt_fix_width" style="text-align: left">les agents peuvent communiquer coopérer</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2char/15min_all/84_predicted_mapping.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2char/15min_all/84_predicted_separate.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2char/15min_all/84_predicted_scratch.wav" type="audio/wav" /></audio></td>
+    </tr>
+    <tr>
+      <td>10 min</td>
+      <td class="txt_fix_width" style="text-align: left">il ne faut pas aller trop vite</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2char/10min_all/7_predicted_mapping.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2char/10min_all/7_predicted_separate.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2char/10min_all/7_predicted_scratch.wav" type="audio/wav" /></audio></td>
+    </tr>
+    <tr>
+      <td>10 min</td>
+      <td class="txt_fix_width" style="text-align: left">les cercles de couleurs transparentes ne se superposent que partiellement</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2char/10min_all/12_predicted_mapping.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2char/10min_all/12_predicted_separate.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2char/10min_all/12_predicted_scratch.wav" type="audio/wav" /></audio></td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th style="text-align: center">Text</th>
+      <th style="text-align: center">15 min</th>
+      <th style="text-align: center">12.5 min</th>
+      <th style="text-align: center">10min</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Learned</td>
+      <td class="txt_fix_width" style="text-align: left">il est moins souvent utile de savoir si la réponse est exacte ou erronée</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2char/mapping_all/20_predicted_15min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2char/mapping_all/20_predicted_12_5min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2char/mapping_all/20_predicted_10min.wav" type="audio/wav" /></audio></td>
+    </tr>
+    <tr>
+      <td>Separate</td>
+      <td class="txt_fix_width" style="text-align: left">elle est constituée de la liste des titres</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2char/separate_all/10_predicted_15min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2char/separate_all/10_predicted_12_5min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/french/phn2char/separate_all/10_predicted_10min.wav" type="audio/wav" /></audio></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<hr>
+<h3 id="german-phn2phn"><a name="head1-de-phn2phn"></a>German (phn2phn)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th style="text-align: center">Text</th>
+      <th style="text-align: center">Unified</th>
+      <th style="text-align: center">Learned</th>
+      <th style="text-align: center">Separate</th>
+      <th style="text-align: center">Scratch</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>25 min</td>
+      <td class="txt_fix_width" style="text-align: left">Sie hatte zwei Töchter die längst verheiratet waren</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2phn/25min_all/werde_die_du_bist_01_f000014_0_share.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2phn/25min_all/werde_die_du_bist_01_f000014_0_map.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2phn/25min_all/werde_die_du_bist_01_f000014_0_separate.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2phn/25min_all/werde_die_du_bist_01_f000014_0_scratch.wav" type="audio/wav" /></audio></td>
+    </tr>
+    <tr>
+      <td>25 min</td>
+      <td class="txt_fix_width" style="text-align: left">Wohin sie führen fragte ich Sie lachte und sagte Weiter</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2phn/25min_all/werde_die_du_bist_04_f000032_0_share.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2phn/25min_all/werde_die_du_bist_04_f000032_0_map.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2phn/25min_all/werde_die_du_bist_04_f000032_0_separate.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2phn/25min_all/werde_die_du_bist_04_f000032_0_scratch.wav" type="audio/wav" /></audio></td>
+    </tr>
+    <tr>
+      <td>15 min</td>
+      <td class="txt_fix_width" style="text-align: left">Ich wurde gestraft und erfuhr daß ich etwas sehr Böses getan hatte</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2phn/15min_all/werde_die_du_bist_02_f000049_0_share.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2phn/15min_all/werde_die_du_bist_02_f000049_0_map.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2phn/15min_all/werde_die_du_bist_02_f000049_0_separate.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2phn/15min_all/werde_die_du_bist_02_f000049_0_scratch.wav" type="audio/wav" /></audio></td>
+    </tr>
+    <tr>
+      <td>15 min</td>
+      <td class="txt_fix_width" style="text-align: left">Er grüßte blieb stehen er wollte mich ansprechen</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2phn/15min_all/werde_die_du_bist_08_f000082_0_share.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2phn/15min_all/werde_die_du_bist_08_f000082_0_map.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2phn/15min_all/werde_die_du_bist_08_f000082_0_separate.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2phn/15min_all/werde_die_du_bist_08_f000082_0_scratch.wav" type="audio/wav" /></audio></td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th style="text-align: center">Text</th>
+      <th style="text-align: center">30 min</th>
+      <th style="text-align: center">25 min</th>
+      <th style="text-align: center">20min</th>
+      <th style="text-align: center">15min</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Unified</td>
+      <td class="txt_fix_width" style="text-align: left">An den Fenstern weiße Gardinen und braune Kinderköpfchen die lustig herauslugten</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2phn/share_all/werde_die_du_bist_04_f000029_0_30min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2phn/share_all/werde_die_du_bist_04_f000029_0_25min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2phn/share_all/werde_die_du_bist_04_f000029_0_20min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2phn/share_all/werde_die_du_bist_04_f000029_0_15min.wav" type="audio/wav" /></audio></td>
+    </tr>
+    <tr>
+      <td>Learned</td>
+      <td class="txt_fix_width" style="text-align: left">Ich habe ja noch beinahe ein halbes Jahrhundert vor mir</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2phn/map_all/werde_die_du_bist_05_f000082_0_30min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2phn/map_all/werde_die_du_bist_05_f000082_0_25min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2phn/map_all/werde_die_du_bist_05_f000082_0_20min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2phn/map_all/werde_die_du_bist_05_f000082_0_15min.wav" type="audio/wav" /></audio></td>
+    </tr>
+    <tr>
+      <td>Separate</td>
+      <td class="txt_fix_width" style="text-align: left">Was die Andern taten das war für sie das Richtige</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2phn/separate_all/werde_die_du_bist_02_f000055_0_30min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2phn/separate_all/werde_die_du_bist_02_f000055_0_25min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2phn/separate_all/werde_die_du_bist_02_f000055_0_20min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2phn/separate_all/werde_die_du_bist_02_f000055_0_15min.wav" type="audio/wav" /></audio></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h3 id="german-phn2char"><a name="head1-de-phn2char"></a>German (phn2char)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th style="text-align: center">Text</th>
+      <th style="text-align: center">Learned</th>
+      <th style="text-align: center">Separate</th>
+      <th style="text-align: center">Scratch</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>25 min</td>
+      <td class="txt_fix_width" style="text-align: left">Nun aber sind mir fast seine Gesichtszüge entschwunden</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2char/25min_all/werde_die_du_bist_02_f000174_0_map.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2char/25min_all/werde_die_du_bist_02_f000174_0_separate.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2char/25min_all/werde_die_du_bist_02_f000174_0_scratch.wav" type="audio/wav" /></audio></td>
+    </tr>
+    <tr>
+      <td>25 min</td>
+      <td class="txt_fix_width" style="text-align: left">Ich saß stundenlang und tat nichts und dämmerte so hin</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2char/25min_all/werde_die_du_bist_02_f000141_0_map.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2char/25min_all/werde_die_du_bist_02_f000141_0_separate.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2char/25min_all/werde_die_du_bist_02_f000141_0_scratch.wav" type="audio/wav" /></audio></td>
+    </tr>
+    <tr>
+      <td>15 min</td>
+      <td class="txt_fix_width" style="text-align: left">Von einer Reise zu meinen Töchtern konnte keine Rede sein</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2char/15min_all/werde_die_du_bist_02_f000127_0_map.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2char/15min_all/werde_die_du_bist_02_f000127_0_separate.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2char/15min_all/werde_die_du_bist_02_f000127_0_scratch.wav" type="audio/wav" /></audio></td>
+    </tr>
+    <tr>
+      <td>15 min</td>
+      <td class="txt_fix_width" style="text-align: left">Ich tat was ich konnte es war auch wirklich nicht zu viel</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2char/15min_all/werde_die_du_bist_02_f000089_0_map.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2char/15min_all/werde_die_du_bist_02_f000089_0_separate.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2char/15min_all/werde_die_du_bist_02_f000089_0_scratch.wav" type="audio/wav" /></audio></td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th style="text-align: center">Text</th>
+      <th style="text-align: center">30 min</th>
+      <th style="text-align: center">25 min</th>
+      <th style="text-align: center">20min</th>
+      <th style="text-align: center">15min</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Learned</td>
+      <td class="txt_fix_width" style="text-align: left">Ich hatte solche Unlust zu meinen Töchtern zu reisen</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2char/map_all/werde_die_du_bist_02_f000143_0_30min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2char/map_all/werde_die_du_bist_02_f000143_0_25min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2char/map_all/werde_die_du_bist_02_f000143_0_20min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2char/map_all/werde_die_du_bist_02_f000143_0_15min.wav" type="audio/wav" /></audio></td>
+    </tr>
+    <tr>
+      <td>Separate</td>
+      <td class="txt_fix_width" style="text-align: left">Immer nur wandle ich am Strand entlang weiter und weiter</td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2char/separate_all/werde_die_du_bist_05_f000072_0_30min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2char/separate_all/werde_die_du_bist_05_f000072_0_25min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2char/separate_all/werde_die_du_bist_05_f000072_0_20min.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><audio controls=""><source src="demo/german/phn2char/separate_all/werde_die_du_bist_05_f000072_0_15min.wav" type="audio/wav" /></audio></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2 id="symbol-mapping"><a name="head2"></a>Symbol Mapping</h2>
+<p>
+The mapping results refer to Section 2.3.2 and Section 4.3 of our paper.
+We derive the mappings from 15 minutes paired data in target languages. 
+For a better presentation and comparison, we mapped all the phonemes to IPA.
+</p>
+
+<h3 id="mandarin-zh-phn2phn"><a name="head2-zh"></a>Mandarin (phn2phn)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Phoneme (EN)</th>
+      <th>Phoneme (ZH)</th>
+      <th> </th>
+      <th>Phoneme (EN)</th>
+      <th>Phoneme (ZH)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>n</td>
+      <td>n</td>
+      <td> </td>
+      <td>ʃ</td>
+      <td>ʂ</td>
+    </tr>
+    <tr>
+      <td>e</td>
+      <td>e</td>
+      <td> </td>
+      <td>b</td>
+      <td>p</td>
+    </tr>
+    <tr>
+      <td>d</td>
+      <td>t</td>
+      <td> </td>
+      <td>ɡ</td>
+      <td>k</td>
+    </tr>
+    <tr>
+      <td>z</td>
+      <td>ɕ</td>
+      <td> </td>
+      <td>s</td>
+      <td>s</td>
+    </tr>
+    <tr>
+      <td>æ</td>
+      <td>a</td>
+      <td> </td>
+      <td>f</td>
+      <td>f</td>
+    </tr>
+    <tr>
+      <td>w</td>
+      <td>w</td>
+      <td> </td>
+      <td>i</td>
+      <td>i</td>
+    </tr>
+    <tr>
+      <td>ɑ</td>
+      <td>ɑ</td>
+      <td> </td>
+      <td>m</td>
+      <td>m</td>
+    </tr>
+    <tr>
+      <td>h</td>
+      <td>h</td>
+      <td> </td>
+      <td>ə</td>
+      <td>ə</td>
+    </tr>
+    <tr>
+      <td>j</td>
+      <td>j</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<hr>
+
+<h3 id="french-phn2char"><a name="head2-fr"></a>French (phn2char)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Phoneme (EN)</th>
+      <th>Character (FR)</th>
+      <th> </th>
+      <th>Phoneme (EN)</th>
+      <th>Character (FR)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>n</td>
+      <td>n</td>
+      <td> </td>
+      <td>ɑ</td>
+      <td>a</td>
+    </tr>
+    <tr>
+      <td>p</td>
+      <td>p</td>
+      <td> </td>
+      <td>t</td>
+      <td>t</td>
+    </tr>
+    <tr>
+      <td>k</td>
+      <td>c</td>
+      <td> </td>
+      <td>ɡ</td>
+      <td>g</td>
+    </tr>
+    <tr>
+      <td>z</td>
+      <td>s</td>
+      <td> </td>
+      <td>d</td>
+      <td>d</td>
+    </tr>
+    <tr>
+      <td>b</td>
+      <td>b</td>
+      <td> </td>
+      <td>v</td>
+      <td>v</td>
+    </tr>
+    <tr>
+      <td>w</td>
+      <td>o</td>
+      <td> </td>
+      <td>ɝ</td>
+      <td>e</td>
+    </tr>
+    <tr>
+      <td>m</td>
+      <td>m</td>
+      <td> </td>
+      <td>i</td>
+      <td>i</td>
+    </tr>
+    <tr>
+      <td>h</td>
+      <td>r</td>
+      <td> </td>
+      <td>f</td>
+      <td>f</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h3 id="german-phn2char"><a name="head2-de"></a>German (phn2char)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Phoneme (EN)</th>
+      <th>Character (DE)</th>
+      <th> </th>
+      <th>Phoneme (EN)</th>
+      <th>Character (DE)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ŋ</td>
+      <td>n</td>
+      <td> </td>
+      <td>z</td>
+      <td>s</td>
+    </tr>
+    <tr>
+      <td>a</td>
+      <td>e</td>
+      <td> </td>
+      <td>p</td>
+      <td>p</td>
+    </tr>
+    <tr>
+      <td>t</td>
+      <td>t</td>
+      <td> </td>
+      <td>ʃ</td>
+      <td>c</td>
+    </tr>
+    <tr>
+      <td>ɡ</td>
+      <td>g</td>
+      <td> </td>
+      <td>d</td>
+      <td>d</td>
+    </tr>
+    <tr>
+      <td>b</td>
+      <td>b</td>
+      <td> </td>
+      <td>ɔ</td>
+      <td>o</td>
+    </tr>
+    <tr>
+      <td>k</td>
+      <td>k</td>
+      <td> </td>
+      <td>v</td>
+      <td>w</td>
+    </tr>
+    <tr>
+      <td>ʊ</td>
+      <td>u</td>
+      <td> </td>
+      <td>ɪ</td>
+      <td>i</td>
+    </tr>
+    <tr>
+      <td>ɑ</td>
+      <td>a</td>
+      <td> </td>
+      <td>æ</td>
+      <td>ä</td>
+    </tr>
+    <tr>
+      <td>m</td>
+      <td>m</td>
+      <td> </td>
+      <td>h</td>
+      <td>h</td>
+    </tr>
+    <tr>
+      <td>j</td>
+      <td>j</td>
+      <td> </td>
+      <td>l</td>
+      <td>l</td>
+    </tr>
+    <tr>
+      <td>f</td>
+      <td>f</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+
+</html>
+
